@@ -1,5 +1,7 @@
 # FlowDesk
 
+![Screenshot](FlowDeskBanner.png)
+
 **Simple Incident Management for IT Service Operations**
 
 [Live Demo](https://flowdesk-frontend-psi.vercel.app/) · [Latest Release](https://github.com/pauloarchanjo/flowdesk/releases/tag/v1.0.0)
