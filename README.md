@@ -2,6 +2,8 @@
 
 **Simple Incident Management for IT Service Operations**
 
+[Live Demo](https://flowdesk-frontend-psi.vercel.app/) · [Latest Release](https://github.com/pauloarchanjo/flowdesk/releases/tag/v1.0.0)
+
 FlowDesk is a lightweight IT Service Management application focused on the incident lifecycle.
 
 The project was created to explore ITSM concepts, business rules, record lifecycle management, assignment logic and service desk workflows through a simple and maintainable application.
