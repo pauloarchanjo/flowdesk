@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>New Incident · FlowDesk</title>
+
+  <link rel="stylesheet" href="../css/variables.css">
+
+  <link rel="stylesheet" href="../css/base.css">
+
+  <link rel="stylesheet" href="../css/layout.css">
+
+  <link rel="stylesheet" href="../css/pages.css">
+
+</head>
+
+
+<body data-page="new-incident">
+
+  <div class="app">
+
+    <aside class="sidebar">
+
+      <div class="brand">
+
+        <div class="brand-mark">
+          F
+        </div>
+
+        <span>
+          FlowDesk
+        </span>
+
+      </div>
+
+
+      <nav class="sidebar-nav">
+
+        <a href="../index.html" class="nav-item" data-page="dashboard">
+          Dashboard
+        </a>
+
+        <a href="./incidents.html" class="nav-item" data-page="incidents">
+          Incidents
+        </a>
+
+        <a href="./new-incident.html" class="nav-item" data-page="new-incident">
+          New Incident
+        </a>
+
+      </nav>
+
+
+      <div class="sidebar-bottom">
+
+        <a href="#" class="nav-item" data-page="settings">
+          Settings
+        </a>
+
+      </div>
+
+    </aside>
+
+
+    <main class="main">
+
+      <header class="topbar">
+
+        <div class="search">
+
+          <input type="search" placeholder="Search incidents..." aria-label="Search incidents">
+
+        </div>
+
+
+        <div class="user">
+
+          <span class="user-name">
+            Administrator
+          </span>
+
+          <div class="avatar">
+            AD
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <div class="content content-form">
+
+        <header class="page-header">
+
+          <div>
+
+            <h1 class="page-title">
+              New Incident
+            </h1>
+
+            <p class="page-description">
+              Register a new service desk incident.
+            </p>
+
+          </div>
+
+        </header>
+
+
+        <form id="incident-form" class="incident-form">
+
+          <section class="form-section">
+
+            <header class="form-section-header">
+
+              <div>
+
+                <h2 class="form-section-title">
+                  Incident information
+                </h2>
+
+                <p class="form-section-description">
+                  Describe the issue reported by the user.
+                </p>
+
+              </div>
+
+            </header>
+
+
+            <div class="form-grid">
+
+              <div class="form-field form-field-full">
+
+                <label for="caller">
+                  Caller
+                </label>
+
+                <input id="caller" name="caller" type="text" placeholder="Employee name" autocomplete="off" required>
+
+              </div>
+
+
+              <div class="form-field form-field-full">
+
+                <label for="title">
+                  Short description
+                </label>
+
+                <input id="title" name="title" type="text" maxlength="120" placeholder="Brief description of the issue"
+                  required>
+
+              </div>
+
+
+              <div class="form-field form-field-full">
+
+                <label for="description">
+                  Description
+                </label>
+
+                <textarea id="description" name="description" rows="6"
+                  placeholder="Describe the issue, symptoms and relevant context..."></textarea>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <section class="form-section">
+
+            <header class="form-section-header">
+
+              <div>
+
+                <h2 class="form-section-title">
+                  Classification
+                </h2>
+
+                <p class="form-section-description">
+                  Define the category, impact and urgency.
+                </p>
+
+              </div>
+
+            </header>
+
+
+            <div class="form-grid">
+
+              <div class="form-field">
+
+                <label for="category">
+                  Category
+                </label>
+
+                <select id="category" name="category" required>
+
+                  <option value="">
+                    Select category
+                  </option>
+
+                  <option value="Hardware">
+                    Hardware
+                  </option>
+
+                  <option value="Software">
+                    Software
+                  </option>
+
+                  <option value="Network">
+                    Network
+                  </option>
+
+                  <option value="Access">
+                    Access
+                  </option>
+
+                  <option value="Email">
+                    Email
+                  </option>
+
+                  <option value="Security">
+                    Security
+                  </option>
+
+                  <option value="Other">
+                    Other
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-field">
+
+                <label for="assignment-group">
+                  Assignment Group
+                </label>
+
+                <select id="assignment-group" name="assignmentGroup" required>
+
+                  <option value="">
+                    Select group
+                  </option>
+
+                  <option value="Service Desk">
+                    Service Desk
+                  </option>
+
+                  <option value="Infrastructure">
+                    Infrastructure
+                  </option>
+
+                  <option value="Network">
+                    Network
+                  </option>
+
+                  <option value="Applications">
+                    Applications
+                  </option>
+
+                  <option value="Security">
+                    Security
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-field">
+
+                <label for="impact">
+                  Impact
+                </label>
+
+                <select id="impact" name="impact" required>
+
+                  <option value="">
+                    Select impact
+                  </option>
+
+                  <option value="High">
+                    High
+                  </option>
+
+                  <option value="Medium">
+                    Medium
+                  </option>
+
+                  <option value="Low">
+                    Low
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-field">
+
+                <label for="urgency">
+                  Urgency
+                </label>
+
+                <select id="urgency" name="urgency" required>
+
+                  <option value="">
+                    Select urgency
+                  </option>
+
+                  <option value="High">
+                    High
+                  </option>
+
+                  <option value="Medium">
+                    Medium
+                  </option>
+
+                  <option value="Low">
+                    Low
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-field">
+
+                <label>
+                  Priority
+                </label>
+
+                <div id="priority-preview" class="priority-preview">
+
+                  <span id="priority-value" class="priority-value">
+                    —
+                  </span>
+
+                  <span class="priority-description">
+                    Calculated automatically
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <div class="form-actions">
+
+            <a href="./incidents.html" class="button-secondary form-cancel">
+              Cancel
+            </a>
+
+
+            <button type="submit" class="button">
+              Create Incident
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <script type="module" src="../js/app.js"></script>
+
+  <script type="module" src="../js/pages/new-incident.js"></script>
+
+</body>
+
+</html>

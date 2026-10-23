@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FlowDesk</title>
+
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/pages.css">
+
+</head>
+
+
+<body data-page="dashboard">
+
+  <div class="app">
+
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+      <div class="brand">
+
+        <div class="brand-mark">
+          F
+        </div>
+
+        <span>
+          FlowDesk
+        </span>
+
+      </div>
+
+
+      <nav class="sidebar-nav">
+
+        <a href="./index.html" class="nav-item" data-page="dashboard">
+          Dashboard
+        </a>
+
+
+        <a href="./pages/incidents.html" class="nav-item" data-page="incidents">
+          Incidents
+        </a>
+
+
+        <a href="./pages/new-incident.html" class="nav-item" data-page="new-incident">
+          New Incident
+        </a>
+
+      </nav>
+
+
+      <div class="sidebar-bottom">
+
+        <a href="#" class="nav-item" data-page="settings">
+          Settings
+        </a>
+
+      </div>
+
+    </aside>
+
+
+    <!-- Main -->
+
+    <main class="main">
+
+
+      <!-- Topbar -->
+
+      <header class="topbar">
+
+        <div class="search">
+
+          <input type="search" placeholder="Search incidents..." aria-label="Search incidents">
+
+        </div>
+
+
+        <div class="user">
+
+          <span class="user-name">
+            Administrator
+          </span>
+
+
+          <div class="avatar">
+            AD
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <!-- Content -->
+
+      <div class="content">
+
+        <header class="page-header">
+
+          <div>
+
+            <h1 class="page-title">
+              Dashboard
+            </h1>
+
+
+            <p class="page-description">
+              Overview of your service desk.
+            </p>
+
+          </div>
+
+
+          <a href="./pages/new-incident.html" class="button">
+            New Incident
+          </a>
+
+        </header>
+
+
+        <!-- Metrics -->
+
+        <section class="metrics">
+
+          <article class="metric-card">
+
+            <p class="metric-label">
+              Open Incidents
+            </p>
+
+
+            <p id="metric-open" class="metric-value">
+              0
+            </p>
+
+          </article>
+
+
+          <article class="metric-card">
+
+            <p class="metric-label">
+              Critical / High
+            </p>
+
+
+            <p id="metric-high-priority" class="metric-value">
+              0
+            </p>
+
+          </article>
+
+
+          <article class="metric-card">
+
+            <p class="metric-label">
+              In Progress
+            </p>
+
+
+            <p id="metric-in-progress" class="metric-value">
+              0
+            </p>
+
+          </article>
+
+
+          <article class="metric-card">
+
+            <p class="metric-label">
+              Resolved Today
+            </p>
+
+
+            <p id="metric-resolved-today" class="metric-value">
+              0
+            </p>
+
+          </article>
+
+        </section>
+
+
+        <!-- Recent Incidents -->
+
+        <section class="section">
+
+          <header class="section-header">
+
+            <h2 class="section-title">
+              Recent Incidents
+            </h2>
+
+
+            <a href="./pages/incidents.html" class="section-link">
+              View all
+            </a>
+
+          </header>
+
+
+          <div class="table-wrapper">
+
+            <table class="incident-table">
+
+              <thead>
+
+                <tr>
+
+                  <th>
+                    Number
+                  </th>
+
+                  <th>
+                    Incident
+                  </th>
+
+                  <th>
+                    Priority
+                  </th>
+
+                  <th>
+                    State
+                  </th>
+
+                  <th>
+                    Assigned Group
+                  </th>
+
+                </tr>
+
+              </thead>
+
+
+              <tbody id="recent-incidents-body">
+
+                <tr>
+
+                  <td colspan="5" class="empty-state">
+                    Loading incidents...
+                  </td>
+
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <script type="module" src="./js/app.js"></script>
+
+
+  <script type="module" src="./js/pages/dashboard.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Incidents · FlowDesk</title>
+
+  <link rel="stylesheet" href="../css/variables.css">
+
+  <link rel="stylesheet" href="../css/base.css">
+
+  <link rel="stylesheet" href="../css/layout.css">
+
+  <link rel="stylesheet" href="../css/pages.css">
+
+</head>
+
+
+<body data-page="incidents">
+
+  <div class="app">
+
+    <aside class="sidebar">
+
+      <div class="brand">
+
+        <div class="brand-mark">
+          F
+        </div>
+
+        <span>
+          FlowDesk
+        </span>
+
+      </div>
+
+
+      <nav class="sidebar-nav">
+
+        <a href="../index.html" class="nav-item" data-page="dashboard">
+          Dashboard
+        </a>
+
+        <a href="./incidents.html" class="nav-item" data-page="incidents">
+          Incidents
+        </a>
+
+        <a href="./new-incident.html" class="nav-item" data-page="new-incident">
+          New Incident
+        </a>
+
+      </nav>
+
+
+      <div class="sidebar-bottom">
+
+        <a href="#" class="nav-item" data-page="settings">
+          Settings
+        </a>
+
+      </div>
+
+    </aside>
+
+
+    <main class="main">
+
+      <header class="topbar">
+
+        <div class="search">
+
+          <input id="incident-search" type="search" placeholder="Search incidents..." aria-label="Search incidents"
+            autocomplete="off">
+
+        </div>
+
+
+        <div class="user">
+
+          <span class="user-name">
+            Administrator
+          </span>
+
+          <div class="avatar">
+            AD
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <div class="content">
+
+        <header class="page-header">
+
+          <div>
+
+            <h1 class="page-title">
+              Incidents
+            </h1>
+
+            <p class="page-description">
+              Manage and track service desk incidents.
+            </p>
+
+          </div>
+
+
+          <a href="./new-incident.html" class="button">
+            New Incident
+          </a>
+
+        </header>
+
+
+        <section class="incident-toolbar">
+
+          <div class="filters">
+
+            <label class="filter">
+
+              <span>
+                State
+              </span>
+
+              <select id="state-filter">
+
+                <option value="">
+                  All states
+                </option>
+
+                <option value="New">
+                  New
+                </option>
+
+                <option value="Assigned">
+                  Assigned
+                </option>
+
+                <option value="In Progress">
+                  In Progress
+                </option>
+
+                <option value="Resolved">
+                  Resolved
+                </option>
+
+                <option value="Closed">
+                  Closed
+                </option>
+
+              </select>
+
+            </label>
+
+
+            <label class="filter">
+
+              <span>
+                Priority
+              </span>
+
+              <select id="priority-filter">
+
+                <option value="">
+                  All priorities
+                </option>
+
+                <option value="P1">
+                  P1
+                </option>
+
+                <option value="P2">
+                  P2
+                </option>
+
+                <option value="P3">
+                  P3
+                </option>
+
+                <option value="P4">
+                  P4
+                </option>
+
+              </select>
+
+            </label>
+
+
+            <label class="filter">
+
+              <span>
+                Assignment group
+              </span>
+
+              <select id="group-filter">
+
+                <option value="">
+                  All groups
+                </option>
+
+              </select>
+
+            </label>
+
+          </div>
+
+
+          <button id="clear-filters" class="button-secondary" type="button">
+            Clear filters
+          </button>
+
+        </section>
+
+
+        <div class="results-summary">
+
+          <span id="result-count" aria-live="polite">
+            0 incidents
+          </span>
+
+        </div>
+
+
+        <section class="section">
+
+          <div class="table-wrapper">
+
+            <table class="incident-table">
+
+              <thead>
+
+                <tr>
+                  <th>Number</th>
+                  <th>Incident</th>
+                  <th>Caller</th>
+                  <th>Priority</th>
+                  <th>State</th>
+                  <th>Assignment Group</th>
+                  <th>Updated</th>
+                </tr>
+
+              </thead>
+
+
+              <tbody id="incident-table-body">
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <script type="module" src="../js/app.js"></script>
+
+  <script type="module" src="../js/pages/incidents.js"></script>
+
+</body>
+
+</html>

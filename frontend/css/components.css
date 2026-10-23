@@ -1,0 +1,458 @@
+/* =========================================================
+   FlowDesk
+   components.css
+   ========================================================= */
+
+
+/* =========================================================
+   Toast Container
+   ========================================================= */
+
+.toast-container {
+  position: fixed;
+
+  top: 20px;
+  right: 20px;
+
+  z-index: 9999;
+
+  width: min(380px,
+      calc(100vw - 32px));
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   Toast
+   ========================================================= */
+
+.toast {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    8px minmax(0, 1fr) 28px;
+
+  align-items: start;
+
+  gap: 12px;
+
+  padding:
+    14px 14px 14px 16px;
+
+  color:
+    var(--color-text);
+
+  background:
+    var(--color-surface);
+
+  border:
+    1px solid var(--color-border);
+
+  border-radius:
+    var(--radius-lg);
+
+  box-shadow:
+    0 12px 36px rgba(24, 24, 27, 0.14);
+
+  opacity: 0;
+
+  transform:
+    translateY(-8px);
+
+  pointer-events: auto;
+
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+
+.toast-visible {
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+
+.toast-leaving {
+  opacity: 0;
+
+  transform:
+    translateY(-6px);
+}
+
+
+/* =========================================================
+   Indicator
+   ========================================================= */
+
+.toast-indicator {
+  width: 8px;
+  height: 8px;
+
+  margin-top: 5px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background:
+    var(--color-primary);
+}
+
+
+.toast-success .toast-indicator {
+  background:
+    var(--color-primary);
+}
+
+
+.toast-info .toast-indicator {
+  background:
+    #2563eb;
+}
+
+
+.toast-warning .toast-indicator {
+  background:
+    #d97706;
+}
+
+
+.toast-error .toast-indicator {
+  background:
+    var(--color-danger);
+}
+
+
+/* =========================================================
+   Content
+   ========================================================= */
+
+.toast-content {
+  min-width: 0;
+}
+
+
+.toast-title {
+  margin: 0;
+
+  color:
+    var(--color-text);
+
+  font-size: 13px;
+  font-weight: 650;
+
+  line-height: 1.4;
+}
+
+
+.toast-message {
+  margin:
+    3px 0 0;
+
+  color:
+    var(--color-text-secondary);
+
+  font-size: 12px;
+
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   Close Button
+   ========================================================= */
+
+.toast-close {
+  width: 28px;
+  height: 28px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  padding: 0;
+
+  color:
+    var(--color-text-tertiary);
+
+  background:
+    transparent;
+
+  border: 0;
+
+  border-radius:
+    var(--radius-sm);
+
+  cursor: pointer;
+
+  font-family:
+    inherit;
+
+  font-size: 18px;
+  font-weight: 400;
+
+  line-height: 1;
+
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+
+.toast-close:hover {
+  color:
+    var(--color-text);
+
+  background:
+    var(--color-surface-secondary);
+}
+
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  .toast-container {
+    top: 12px;
+    right: 12px;
+    left: 12px;
+
+    width: auto;
+  }
+
+}
+
+/* =========================================================
+   Global Search
+   ========================================================= */
+
+
+.topbar .search {
+  position: relative;
+}
+
+
+/* Results container */
+
+.global-search-results {
+  position: absolute;
+
+  top: calc(100% + 9px);
+  left: 0;
+
+  z-index: 1000;
+
+  width: min(440px,
+      calc(100vw - 32px));
+
+  overflow: hidden;
+
+  background:
+    var(--color-surface);
+
+  border:
+    1px solid var(--color-border);
+
+  border-radius:
+    var(--radius-lg);
+
+  box-shadow:
+    0 18px 50px rgba(24, 24, 27, 0.14);
+}
+
+
+.global-search-results[hidden] {
+  display: none;
+}
+
+
+/* Search result */
+
+.global-search-result {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  padding: 12px 14px;
+
+  color:
+    var(--color-text);
+
+  background:
+    transparent;
+
+  border: 0;
+
+  border-bottom:
+    1px solid var(--color-border);
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background var(--transition-fast);
+}
+
+
+.global-search-result:last-child {
+  border-bottom: 0;
+}
+
+
+.global-search-result:hover,
+.global-search-result.active {
+  background:
+    var(--color-surface-secondary);
+}
+
+
+.global-search-result:focus {
+  outline: none;
+}
+
+
+/* Header */
+
+.global-search-result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 14px;
+}
+
+
+.global-search-number {
+  color:
+    var(--color-primary);
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+.global-search-status {
+  color:
+    var(--color-text-tertiary);
+
+  font-size: 10px;
+
+  white-space: nowrap;
+}
+
+
+/* Title */
+
+.global-search-title {
+  color:
+    var(--color-text);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* Metadata */
+
+.global-search-metadata {
+  color:
+    var(--color-text-secondary);
+
+  font-size: 11px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* Empty */
+
+.global-search-empty {
+  padding: 22px 16px;
+
+  color:
+    var(--color-text-secondary);
+
+  text-align: center;
+
+  font-size: 12px;
+}
+
+
+/* Search input active */
+
+.topbar .search input[aria-expanded="true"] {
+  background:
+    var(--color-surface);
+
+  border-color:
+    var(--color-border-strong);
+}
+
+
+/* Responsive */
+
+@media (max-width: 640px) {
+
+  .topbar .search {
+    width: 100%;
+  }
+
+
+  .global-search-results {
+    position: fixed;
+
+    top: calc(var(--topbar-height) - 4px);
+
+    right: 12px;
+    left: 12px;
+
+    width: auto;
+
+    max-height:
+      calc(100vh - 90px);
+
+    overflow-y: auto;
+  }
+
+}

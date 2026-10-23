@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Incident · FlowDesk</title>
+
+  <link rel="stylesheet" href="../css/variables.css">
+
+  <link rel="stylesheet" href="../css/base.css">
+
+  <link rel="stylesheet" href="../css/layout.css">
+
+  <link rel="stylesheet" href="../css/pages.css">
+
+</head>
+
+
+<body data-page="incidents">
+
+  <div class="app">
+
+    <aside class="sidebar">
+
+      <div class="brand">
+
+        <div class="brand-mark">
+          F
+        </div>
+
+        <span>
+          FlowDesk
+        </span>
+
+      </div>
+
+
+      <nav class="sidebar-nav">
+
+        <a href="../index.html" class="nav-item" data-page="dashboard">
+          Dashboard
+        </a>
+
+        <a href="./incidents.html" class="nav-item" data-page="incidents">
+          Incidents
+        </a>
+
+        <a href="./new-incident.html" class="nav-item" data-page="new-incident">
+          New Incident
+        </a>
+
+      </nav>
+
+
+      <div class="sidebar-bottom">
+
+        <a href="#" class="nav-item" data-page="settings">
+          Settings
+        </a>
+
+      </div>
+
+    </aside>
+
+
+    <main class="main">
+
+      <header class="topbar">
+
+        <div class="search">
+
+          <input type="search" placeholder="Search incidents..." aria-label="Search incidents">
+
+        </div>
+
+
+        <div class="user">
+
+          <span class="user-name">
+            Administrator
+          </span>
+
+          <div class="avatar">
+            AD
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <div class="content detail-content">
+
+        <a href="./incidents.html" class="detail-back">
+          ← Back to incidents
+        </a>
+
+
+        <section id="incident-error" class="detail-error" hidden>
+
+          <h1>
+            Incident not found
+          </h1>
+
+          <p>
+            The requested incident does not exist or is no longer available.
+          </p>
+
+          <a href="./incidents.html" class="button">
+            View Incidents
+          </a>
+
+        </section>
+
+
+        <div id="incident-content">
+
+          <header class="incident-detail-header">
+
+            <div>
+
+              <span id="incident-number" class="record-number">
+                —
+              </span>
+
+
+              <h1 id="incident-title" class="incident-detail-title">
+                —
+              </h1>
+
+
+              <div class="incident-meta">
+
+                <span id="incident-priority" class="badge">
+                  —
+                </span>
+
+
+                <span id="incident-state" class="state-label">
+
+                  <span class="state-dot"></span>
+
+                  <span id="incident-state-text">
+                    —
+                  </span>
+
+                </span>
+
+
+                <span class="incident-updated">
+
+                  Updated
+
+                  <span id="incident-updated">
+                    —
+                  </span>
+
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="incident-header-actions">
+
+              <button id="edit-incident-button" type="button" class="button-secondary">
+                Edit
+              </button>
+
+            </div>
+
+          </header>
+
+
+          <div class="detail-layout">
+
+            <div class="detail-main">
+
+              <section id="resolution-panel" class="detail-panel" hidden>
+
+                <header class="detail-panel-header">
+
+                  <h2>
+                    Resolution Information
+                  </h2>
+
+                </header>
+
+
+                <div class="detail-panel-body">
+
+                  <dl class="resolution-fields">
+
+                    <div class="resolution-field">
+
+                      <dt>
+                        Resolution Code
+                      </dt>
+
+                      <dd id="resolution-code">
+                        —
+                      </dd>
+
+                    </div>
+
+
+                    <div class="resolution-field">
+
+                      <dt>
+                        Resolved By
+                      </dt>
+
+                      <dd id="resolved-by">
+                        —
+                      </dd>
+
+                    </div>
+
+
+                    <div class="resolution-field">
+
+                      <dt>
+                        Resolved At
+                      </dt>
+
+                      <dd id="resolved-at">
+                        —
+                      </dd>
+
+                    </div>
+
+                  </dl>
+
+
+                  <div class="resolution-notes-block">
+
+                    <span class="resolution-notes-label">
+                      Resolution Notes
+                    </span>
+
+                    <p id="resolution-notes" class="resolution-notes">
+                      —
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </section>
+
+
+              <section class="detail-panel">
+
+                <header class="detail-panel-header">
+
+                  <h2>
+                    Work Notes
+                  </h2>
+
+                </header>
+
+
+                <div class="detail-panel-body">
+
+                  <form id="work-note-form" class="work-note-form">
+
+                    <label for="work-note" class="work-note-label">
+                      Add internal note
+                    </label>
+
+
+                    <textarea id="work-note" class="work-note-textarea" rows="4" maxlength="1000"
+                      placeholder="Add troubleshooting details, investigation notes or internal updates..."
+                      required></textarea>
+
+
+                    <div class="work-note-footer">
+
+                      <span id="work-note-helper" class="work-note-helper">
+                        Work notes are visible to service desk agents.
+                      </span>
+
+
+                      <button id="work-note-submit" type="submit" class="button">
+                        Add Work Note
+                      </button>
+
+                    </div>
+
+                  </form>
+
+                </div>
+
+              </section>
+
+
+              <section class="detail-panel">
+
+                <header class="detail-panel-header">
+
+                  <h2>
+                    Activity
+                  </h2>
+
+                </header>
+
+
+                <div class="detail-panel-body">
+
+                  <div id="incident-activity" class="activity-list">
+                  </div>
+
+                </div>
+
+              </section>
+
+            </div>
+
+
+            <aside class="detail-sidebar">
+
+              <section class="detail-panel">
+
+                <header class="detail-panel-header">
+
+                  <h2>
+                    Lifecycle
+                  </h2>
+
+                </header>
+
+
+                <div class="detail-panel-body">
+
+                  <div class="lifecycle-current">
+
+                    <span class="lifecycle-label">
+                      Current state
+                    </span>
+
+
+                    <span id="lifecycle-current-state" class="state-label">
+
+                      <span class="state-dot"></span>
+
+                      <span id="lifecycle-current-state-text">
+                        —
+                      </span>
+
+                    </span>
+
+                  </div>
+
+
+                  <div id="lifecycle-actions" class="lifecycle-actions">
+                  </div>
+
+
+                  <p id="lifecycle-message" class="lifecycle-message" hidden>
+                  </p>
+
+                </div>
+
+              </section>
+
+
+              <section class="detail-panel">
+
+                <header class="detail-panel-header">
+
+                  <h2>
+                    Incident details
+                  </h2>
+
+                </header>
+
+
+                <div class="detail-panel-body">
+
+                  <dl class="detail-fields">
+
+                    <div class="detail-field">
+
+                      <dt>
+                        Caller
+                      </dt>
+
+                      <dd id="incident-caller">
+                        —
+                      </dd>
+
+                    </div>
+
+
+                    <div class="detail-field">
+
+                      <dt>
+                        Category
+                      </dt>
+
+                      <dd id="incident-category">
+                        —
+                      </dd>
+
+                    </div>
+
+
+                    <div class="detail-field">
+
+                      <dt>
+                        Assignment Group
+                      </dt>
+
+                      <dd id="incident-group">
+                        —
+                      </dd>
+
+                    </div>
+
+
+                    <div class="detail-field">
+
+                      <dt>
+                        Assigned To
+                      </dt>
+
+                      <dd id="incident-assigned-to">
+                        —
+                      </dd>
+
+                    </div>
+
+
+                    <div class="detail-field">
+
+                      <dt>
+                        Impact
+                      </dt>
+
+                      <dd id="incident-impact">
+                        —
+                      </dd>
+
+                    </div>
+
+
+                    <div class="detail-field">
+
+                      <dt>
+                        Urgency
+                      </dt>
+
+                      <dd id="incident-urgency">
+                        —
+                      </dd>
+
+                    </div>
+
+
+                    <div class="detail-field">
+
+                      <dt>
+                        Created
+                      </dt>
+
+                      <dd id="incident-created">
+                        —
+                      </dd>
+
+                    </div>
+
+
+                    <div class="detail-field">
+
+                      <dt>
+                        Updated
+                      </dt>
+
+                      <dd id="incident-updated-field">
+                        —
+                      </dd>
+
+                    </div>
+
+                  </dl>
+
+                </div>
+
+              </section>
+
+            </aside>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <!-- Edit Incident -->
+
+  <dialog id="edit-incident-dialog" class="edit-dialog">
+
+    <form id="edit-incident-form" class="edit-incident-form">
+
+      <header class="edit-dialog-header">
+
+        <div>
+
+          <h2>
+            Edit Incident
+          </h2>
+
+          <p>
+            Update classification and assignment information.
+          </p>
+
+        </div>
+
+
+        <button id="edit-dialog-close" class="dialog-close" type="button" aria-label="Close edit dialog">
+          ×
+        </button>
+
+      </header>
+
+
+      <div class="edit-dialog-body">
+
+        <div class="form-grid edit-form-grid">
+
+          <div class="form-field form-field-full">
+
+            <label for="edit-category">
+              Category
+            </label>
+
+            <select id="edit-category" required>
+
+              <option value="">
+                Select category
+              </option>
+
+              <option value="Hardware">
+                Hardware
+              </option>
+
+              <option value="Software">
+                Software
+              </option>
+
+              <option value="Network">
+                Network
+              </option>
+
+              <option value="Access">
+                Access
+              </option>
+
+              <option value="Email">
+                Email
+              </option>
+
+              <option value="Security">
+                Security
+              </option>
+
+              <option value="Other">
+                Other
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-field">
+
+            <label for="edit-assignment-group">
+              Assignment Group
+            </label>
+
+            <select id="edit-assignment-group" required>
+
+              <option value="">
+                Select group
+              </option>
+
+              <option value="Service Desk">
+                Service Desk
+              </option>
+
+              <option value="Infrastructure">
+                Infrastructure
+              </option>
+
+              <option value="Network">
+                Network
+              </option>
+
+              <option value="Applications">
+                Applications
+              </option>
+
+              <option value="Security">
+                Security
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-field">
+
+            <label for="edit-assigned-to">
+              Assigned To
+            </label>
+
+            <select id="edit-assigned-to">
+
+              <option value="">
+                Unassigned
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-field">
+
+            <label for="edit-impact">
+              Impact
+            </label>
+
+            <select id="edit-impact" required>
+
+              <option value="High">
+                High
+              </option>
+
+              <option value="Medium">
+                Medium
+              </option>
+
+              <option value="Low">
+                Low
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-field">
+
+            <label for="edit-urgency">
+              Urgency
+            </label>
+
+            <select id="edit-urgency" required>
+
+              <option value="High">
+                High
+              </option>
+
+              <option value="Medium">
+                Medium
+              </option>
+
+              <option value="Low">
+                Low
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-field form-field-full">
+
+            <label>
+              Calculated Priority
+            </label>
+
+
+            <div class="priority-preview">
+
+              <span id="edit-priority-value" class="priority-value">
+                —
+              </span>
+
+              <span class="priority-description">
+                Automatically recalculated from impact and urgency.
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <p id="edit-form-feedback" class="edit-form-feedback" hidden>
+        </p>
+
+      </div>
+
+
+      <footer class="edit-dialog-footer">
+
+        <button id="edit-dialog-cancel" type="button" class="button-secondary">
+          Cancel
+        </button>
+
+
+        <button type="submit" class="button">
+          Save Changes
+        </button>
+
+      </footer>
+
+    </form>
+
+  </dialog>
+
+  <dialog id="resolution-dialog" class="edit-dialog resolution-dialog">
+
+    <form id="resolution-form" class="edit-incident-form">
+
+      <header class="edit-dialog-header">
+
+        <div>
+
+          <h2>
+            Resolve Incident
+          </h2>
+
+          <p>
+            Provide the information that explains how this incident was resolved.
+          </p>
+
+        </div>
+
+
+        <button id="resolution-dialog-close" class="dialog-close" type="button" aria-label="Close resolution dialog">
+          ×
+        </button>
+
+      </header>
+
+
+      <div class="edit-dialog-body">
+
+        <div class="resolution-form-content">
+
+          <div class="form-field">
+
+            <label for="resolution-code-input">
+              Resolution Code
+            </label>
+
+            <select id="resolution-code-input" required>
+
+              <option value="">
+                Select resolution
+              </option>
+
+              <option value="Solved Permanently">
+                Solved Permanently
+              </option>
+
+              <option value="Solved with Workaround">
+                Solved with Workaround
+              </option>
+
+              <option value="User Error">
+                User Error
+              </option>
+
+              <option value="Duplicate">
+                Duplicate
+              </option>
+
+              <option value="No Fault Found">
+                No Fault Found
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-field">
+
+            <label for="resolution-notes-input">
+              Resolution Notes
+            </label>
+
+            <textarea id="resolution-notes-input" rows="6" maxlength="1500"
+              placeholder="Describe the solution, workaround or action taken..." required></textarea>
+
+          </div>
+
+
+          <p class="resolution-helper">
+            Resolution information will be recorded in the incident history.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <footer class="edit-dialog-footer">
+
+        <button id="resolution-dialog-cancel" type="button" class="button-secondary">
+          Cancel
+        </button>
+
+
+        <button type="submit" class="button">
+          Resolve Incident
+        </button>
+
+      </footer>
+
+    </form>
+
+  </dialog>
+
+
+  <script type="module" src="../js/app.js"></script>
+
+
+  <script type="module" src="../js/pages/incidentDetails.js"></script>
+
+</body>
+
+</html>
